@@ -1,4 +1,4 @@
-# Vehicle Detection
+## Vehicle Detection
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
 
 
@@ -17,9 +17,17 @@ Example of Vehicle data:-
 
 ![Vehicle](assets/VehicleEg.JPG)
 
-Here I have used skimage's hog method. This has been implemented in third cell of jupyter notebook(CarND-Vehicle-Detection.ipynb).
+#Hog
+Here I have used skimage's hog method. This has been implemented in `hog_features` function in third cell of jupyter notebook(CarND-Vehicle-Detection.ipynb).
 I tried various permutations and combinations and got high accuracy for YUV color space with orientation=8,pixels per cell = 8
 and cells per block = 2.I have taken hog of each channel and then concatenated them.
 
 Example of Non-Vehicel data:-
-![NonVehicle](assest/NonVehicleEg.JPG)
+![NonVehicle](assets/NonVehicleEg.JPG)
+
+#Classifier
+The HOG features extracted from the training data using the `derive_features` function in cell four.Then I normalized the data using sklearn.preprocessing's `StandardScaler`.This has been implemented in cell 10.
+After normailzing I split my data into training and test using `train_test_split` of sklearn.model_selection.
+I have used Linear SVM as classifier. We attained accuracy of 98.5%.
+
+#Sliding Window Search
