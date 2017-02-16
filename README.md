@@ -51,7 +51,7 @@ HeatMap visualization:-
 #Pipeline
 For video I have created `VehilceDetector` class. Here we maintain heatmaps of past n number of frames, which helps us in averaging and getting smoothening effect.
 
-[Watch](https://www.youtube.com/watch?v=d49HwGTXhgw) output video.
+[Watch](https://www.youtube.com/watch?v=d49HwGTXhgw) output video.Code is in Lane-Vehicle-Detection.ipynb
 
 Also I have combined third project with this one. You can [watch](https://www.youtube.com/watch?v=dSp0ku_ZokE) it here.
 
