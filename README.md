@@ -43,11 +43,17 @@ This is what we get after applying threshold:-
 We have used HeatMap technique to reduce the false positives, code for which can be found in cell 20. 
 After applying heatmap, we get drastic improvement and our pipelines detects the car. We have got `draw_boxes` function in cell 16 which helps us in draw bounding boxes around high-confidence detections where multiple overlapping detections occur.
 
+HeatMap visualization:-
+![HeatMap](assets/HeatMap.JPG)
+
 ![SlideWindowsHeatMap](assets/SlideWindowsHeatMap.JPG)
 
 #Pipeline
 For video I have created `VehilceDetector` class. Here we maintain heatmaps of past n number of frames, which helps us in averaging and getting smoothening effect.
 
-[Output video](https://www.youtube.com/watch?v=d49HwGTXhgw)
+[Watch](https://www.youtube.com/watch?v=d49HwGTXhgw) output video.
 
 Also I have combined third project with this one. You can [watch](https://www.youtube.com/watch?v=dSp0ku_ZokE) it here.
+
+#Reflection:
+I found this approach very crude. It took 30 min for my pipeline to work on whole project video. This happens because we iterate throgh large number of windowss of varying size. Also there should be some non-linearity in classifier so that it is robust and accuracy increases.We can implement YOLO and other deep learning techniques to improve the performance.
