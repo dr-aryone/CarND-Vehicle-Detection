@@ -20,7 +20,8 @@ Example of Vehicle data:-
 #Hog
 Here I have used skimage's hog method. This has been implemented in `hog_features` function in third cell of jupyter notebook(CarND-Vehicle-Detection.ipynb).
 I tried various permutations and combinations and got high accuracy for YUV color space with orientation=8,pixels per cell = 8
-and cells per block = 2.I have taken hog of each channel and then concatenated them.
+and cells per block = 2.
+I have taken hog of each channel and then concatenated them.
 
 Example of Non-Vehicel data:-
 ![NonVehicle](assets/NonVehicleEg.JPG)
@@ -31,3 +32,22 @@ After normailzing I split my data into training and test using `train_test_split
 I have used Linear SVM as classifier. We attained accuracy of 98.5%.
 
 #Sliding Window Search
+To identify vehicles in an image, we will use a sliding windows approach to detect vehicles.So for this we have created `slide_window` function(cell 17) which will provide us windows in which we have to search for the car.Here I have chosen the right bottom half of the image as Region Of Interset.Here multiples windows are selected viz.(64, 64), (96, 96), (128, 128). I have constant overlap of 0.8 for all of them.
+This is what we get after `slide_window` function:-
+![SlideWindows](assets/SlideWindows.JPG)
+
+After this we iterate through each window and try to find a car in it. We do this by resizing the window to 64X64, extract its hog features,normalize them and then pass through classifier.To eliminate some false postive we set some threshold for the confidence value. Code can be found in `search_windows` function in cell 18.
+This is what we get after applying threshold:-
+![SlideWindowThreshold](assets/SlideWindowsThreshold.JPG)
+
+We have used HeatMap technique to reduce the false positives, code for which can be found in cell 20. 
+After applying heatmap, we get drastic improvement and our pipelines detects the car. We have got `draw_boxes` function in cell 16 which helps us in draw bounding boxes around high-confidence detections where multiple overlapping detections occur.
+
+![SlideWindowsHeatMap](assets/SlideWindowsHeatMap.JPG)
+
+#Pipeline
+For video I have created `VehilceDetector` class. Here we maintain heatmaps of past n number of frames, which helps us in averaging and getting smoothening effect.
+
+[Output video](https://www.youtube.com/watch?v=d49HwGTXhgw)
+
+Also I have combined third project with this one. You can [watch](https://www.youtube.com/watch?v=dSp0ku_ZokE) it here.
