@@ -51,9 +51,8 @@ HeatMap visualization:-
 #Pipeline
 For video I have created `VehilceDetector` class. Here we maintain heatmaps of past n number of frames, which helps us in averaging and getting smoothening effect.
 
-[Watch](https://www.youtube.com/watch?v=d49HwGTXhgw) output video.Code is in Lane-Vehicle-Detection.ipynb
-
-Also I have combined third project with this one. You can [watch](https://www.youtube.com/watch?v=dSp0ku_ZokE) it here.
+[Watch](https://www.youtube.com/watch?v=d49HwGTXhgw) output video.
+Also I have combined third project with this one. You can [watch](https://www.youtube.com/watch?v=dSp0ku_ZokE) it here.Code is in Lane-Vehicle-Detection.ipynb
 
 #Reflection:
 I found this approach very crude. It took 30 min for my pipeline to work on whole project video. This happens because we iterate throgh large number of windowss of varying size. Also there should be some non-linearity in classifier so that it is robust and accuracy increases.We can implement YOLO and other deep learning techniques to improve the performance.
